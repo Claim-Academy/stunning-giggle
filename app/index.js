@@ -37,9 +37,7 @@ function createProductTile(prod) {
 
 const catalogMarkup = `
   <main>
-    ${createProductTile(products[0])}
-    ${createProductTile(products[1])}
-    ${createProductTile(products[2])}
+    ${products.map(createProductTile).join("")}
   </main>
 `;
 
