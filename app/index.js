@@ -9,11 +9,11 @@ const product = {
 function createProductTile(prod) {
   return `
   <figure>
-      <img src="${product.imgUrl}" alt="${product.name}">
+      <img src="${prod.imgUrl}" alt="${prod.name}">
       <figcaption>
-        <h2>${product.name}</h2>
-        <small>${product.price}</small>
-        <p>${product.description}</p>
+        <h2>${prod.name}</h2>
+        <small>${prod.price}</small>
+        <p>${prod.description}</p>
       </figcaption>
     </figure>
   `;
