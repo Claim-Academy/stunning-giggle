@@ -59,3 +59,14 @@ const catalogMarkup = `
     ${products.map(createProductTile).join("")}
   </main>
 `;
+
+/**
+ * MAP returns a new array that is ALWAYS the same length as the original.
+ * MAP is creates the new array from the return value of the callback.
+ *
+ * FILTER returns a new array that is LESS than or EQUAL to the length of the original.
+ * FILTER creates the new array by adding items to the new array if the callback returns true. A FILTER uses a PREDICATE CALLBACK FUNCTION.
+ */
+
+const discountedProducts = products.filter(isDiscounted);
+console.log(discountedProducts);
