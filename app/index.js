@@ -5,6 +5,12 @@ const products = [
     description: "A pair of warm, fuzzy socks",
     imgUrl:
       "https://images.unsplash.com/photo-1556740732-3f8f0a6c7b0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+
+    // Nested object
+    discount: {
+      code: "50OFF",
+      amount: 0.5,
+    },
   },
   {
     name: "Pants",
@@ -22,6 +28,9 @@ const products = [
   },
 ];
 
+// TODO: Log out the discount code for the first product
+console.log(products[0].discount.code);
+
 function createProductTile(prod) {
   return `
   <figure>
@@ -35,10 +44,18 @@ function createProductTile(prod) {
   `;
 }
 
+// PARAMETERS are the names listed in the function definition.
+// ARGUMENTS are the real values passed to (and received by) the function.
+// PARAMETERS are like variables that are only available inside the function.
+function isDiscounted(prod) {
+  // Explicit coercion to boolean
+  return Boolean(prod.discount);
+}
+
+console.log(isDiscounted(products[1]));
+
 const catalogMarkup = `
   <main>
     ${products.map(createProductTile).join("")}
   </main>
 `;
-
-console.log(catalogMarkup);
