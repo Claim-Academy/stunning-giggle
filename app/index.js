@@ -1,4 +1,9 @@
-import users from "./users.js";
+// Asynchronous
+// This will leverage the OS's thread pool to perform the work
+const resp = await fetch("https://jsonplaceholder.typicode.com/users");
+
+// Asynchronously read the raw response data as JSON
+const users = await resp.json();
 
 const createBioCard = (person) => `
     <section>
