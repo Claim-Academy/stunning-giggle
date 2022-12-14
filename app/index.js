@@ -1,21 +1,20 @@
-import people from "./people.js";
+import users from "./users.js";
 
-const olderPeople = people.filter((person) => person.age > 27);
+const createBioCard = (person) => `
+    <section>
+      <h2>${person.name}</h2>
+      <ul>
+        <li><a href="mailto:${person.email}">${person.email}</a></li>
+        <li><a href="tel:${person.phone}">${person.phone}</a></li>
+        <li><a href="https://www.google.com/maps/place/${person.address.geo.lat},${person.address.geo.lng}">${person.address.street}, ${person.address.city}</a></li>
+      </ul>
 
-const peopleThatStartWithJ = people.filter((person) =>
-  person.name.startsWith("J")
-);
-
-const peopleWithSalutation = people.map(
-  (person) => `${person.salutation} ${person.name}`
-);
-
-function createBioCard(person) {
-  return `
-    <p>${person.salutation} ${person.name} is ${person.age} years old.</p>
+      <footer>
+        <em>${person.company.catchPhrase}</em>
+      </footer>
+    </section>
   `;
-}
 
-const bioCardHTML = people.map(createBioCard).join("");
+const bioCardHTML = users.map(createBioCard).join("");
 
 console.log(bioCardHTML);
